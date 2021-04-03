@@ -218,7 +218,7 @@ def collectFlow_task():
     try:
         for i in range(3):
             t = time.time()
-            orderId = md5(int(round(t * 1000)))
+            orderId = md5(str(int(round(t * 1000))))
             data1 = {
                 'stepflag': '22',
                 'orderId':orderId
