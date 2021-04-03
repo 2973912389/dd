@@ -227,6 +227,7 @@ def collectFlow_task():
             watchVideo = client.post('https://act.10010.com/SigninApp/mySignin/addFlow',data1)
             watchVideo.encoding='utf-8'
             res1 = watchVideo.json()
+            print(res1)
             if res1['reason'] == '00':
                 logging.info('【4G流量包-看视频】: 获得' + res1['addNum'] + 'M流量 x' + str(i+1))
             elif res1['reason'] == '01':
