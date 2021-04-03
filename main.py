@@ -7,6 +7,17 @@ import requests,json,time,re,login,logging,traceback,os,random,notify,datetime
 from lxml.html import fromstring
 import pytz
 
+import hashlib
+import time;
+
+
+def md5(str):
+    m = hashlib.md5()
+    m.update(str.encode("hex"))
+    print(m.hexdigest())
+    return m.hexdigest()
+
+
 #用户登录全局变量
 client = None
 
@@ -203,8 +214,11 @@ def openBox_task():
 #领取 4G 流量包任务，看视频、下载软件每日可获得 240M 流量
 #位置: 我的 --> 我的金币 --> 4G流量包
 def collectFlow_task():
+    t = time.time()
+    orderId = md5(int(round(t * 1000)))
     data1 = {
-        'stepflag': '22'
+        'stepflag': '22',
+        'orderId':orderId
     }
     
     try:
