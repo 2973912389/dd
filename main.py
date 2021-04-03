@@ -13,7 +13,7 @@ import time;
 
 def md5(str):
     m = hashlib.md5()
-    m.update(str.encode("hex"))
+    m.update(str.encode("UTF-8"))
     print(m.hexdigest())
     return m.hexdigest()
 
